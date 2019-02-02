@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 align-items-center" id="pics">
+            <img src="/assets/img/burger.png" alt="a delicious buger" id="burgerPic">
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="burgerInput" placeholder="Your Burger">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="submit btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-6" id="uneaten">
+            <div class="list-group">
+                <a id="dbId" class="list-group-item list-group-item-action uneaten">Cras justo odio</a>
+                <a id="dbId" class="list-group-item list-group-item-action uneaten">Dapibus ac facilisis in</a>
+                <a id="dbId" class="list-group-item list-group-item-action uneaten">Morbi leo risus</a>
+                <a id="dbId" class="list-group-item list-group-item-action uneaten">Porta ac consectetur ac</a>
+            </div>
+        </div>
+        <div class="col-md-6" id="eaten">
+            <div class="list-group">
+                <a id="dbId" class="list-group-item list-group-item-action eaten">Cras justo odio</a>
+                <a id="dbId" class="list-group-item list-group-item-action eaten">Dapibus ac facilisis in</a>
+                <a id="dbId" class="list-group-item list-group-item-action eaten">Morbi leo risus</a>
+                <a id="dbId" class="list-group-item list-group-item-action eaten">Porta ac consectetur ac</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $.ajax("/api/all", function(data) {
+        console.log(data);
+    });
+})
+</script>

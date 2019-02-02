@@ -3,18 +3,18 @@ const orm = require("../config/orm");
 
 const burger = {
     all: function() {
-        orm.selectAll(function(res) {
-            res.json(res);
+        orm.all(function(data) {
+            res.json(data);
         });
     },
     insert: function(burgerName) {
-        orm.insertOne(burgerName, function(res) {
-            cb(res);
+        orm.insert(burgerName).then(function(data) {
+            res.json(data);
         });
     },
-    update: function(eaten, id, cb) {
-        orm.updateOne(eaten, id, function(res) {
-            cb(res);
+    update: function(eaten, id) {
+        orm.update(eaten, id).then(function(data) {
+            res.json(data);
         });
     }
 };
