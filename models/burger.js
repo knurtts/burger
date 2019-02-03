@@ -2,19 +2,19 @@ const orm = require("../config/orm");
 
 
 const burger = {
-    all: function() {
+    all: function(cb) {
         orm.all(function(data) {
-            res.json(data);
+            cb(data);
         });
     },
     insert: function(burgerName) {
-        orm.insert(burgerName).then(function(data) {
-            res.json(data);
+        orm.insert(burgerName, function(data) {
+            console.log("Insert function complete.");
         });
     },
-    update: function(eaten, id) {
-        orm.update(eaten, id).then(function(data) {
-            res.json(data);
+    update: function(id) {
+        orm.update(id, function() {
+            console.log("UPDATED!!!");
         });
     }
 };

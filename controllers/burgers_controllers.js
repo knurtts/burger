@@ -9,20 +9,25 @@ router.get("/", function(req, res) {
 
 router.get("/api/all", function(req, res) {
     burger.all(function(data) {
+        // console.log(data);
         res.json(data);
     });
 });
 
 router.post("/api/new", function(req, res) {
-    burger.insert(req.body.burger);
-    console.log(res);
+    console.log("request sent");
+    var burgerName = req.body.name;
+    // console.log(burgerName);
+    
+    burger.insert(burgerName, function(data) {
+        console.log(data);
+    });
 });
 
 router.post("/api/update", function(req, res) {
-    burger.update(req.body.eaten, req.body.id);
-    console.log(res);
+    burger.update(req.body.id, function(data) {
+        console.log(res);
+    });
 });
-
-
 
 module.exports = router;
